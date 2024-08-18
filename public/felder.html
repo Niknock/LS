@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felderverwaltung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="kunden.html">Kunden</a></li>
+            <li><a href="felder.html">Felder</a></li>
+            <li><a href="fruchtarten.html">Fruchtarten-Rechner</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Felder erstellen und verwalten</h2>
+        <div class="form-group">
+            <label for="fieldName">Feldname:</label>
+            <input type="text" id="fieldName" placeholder="Name des Feldes">
+        </div>
+        <div class="form-group">
+            <label for="fieldSize">Größe des Feldes (Hektar):</label>
+            <input type="number" id="fieldSize" placeholder="Größe in Hektar">
+        </div>
+        <button onclick="createField()">Feld erstellen</button>
+
+        <h3>Bestehende Felder</h3>
+        <ul id="fieldList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

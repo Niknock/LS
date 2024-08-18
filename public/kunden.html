@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundenverwaltung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="kunden.html">Kunden</a></li>
+            <li><a href="felder.html">Felder</a></li>
+            <li><a href="fruchtarten.html">Fruchtarten-Rechner</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Kunden erstellen und verwalten</h2>
+        <div class="form-group">
+            <label for="customerName">Kundenname:</label>
+            <input type="text" id="customerName" placeholder="Name des Kunden">
+        </div>
+        <div class="form-group">
+            <label for="discount">Rabatt (%):</label>
+            <input type="number" id="discount" placeholder="Rabatt in Prozent">
+        </div>
+        <button onclick="createCustomer()">Kunde erstellen</button>
+
+        <h3>Bestehende Kunden</h3>
+        <ul id="customerList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

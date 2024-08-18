@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruchtarten-Rechner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="kunden.html">Kunden</a></li>
+            <li><a href="felder.html">Felder</a></li>
+            <li><a href="fruchtarten.html">Fruchtarten-Rechner</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Fruchtarten-Rechner (LS 22)</h2>
+        <div class="form-group">
+            <label for="customerSelect">Kunde auswählen:</label>
+            <select id="customerSelect">
+                <!-- Kunden werden dynamisch hinzugefügt -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fieldSelect">Feld auswählen:</label>
+            <select id="fieldSelect">
+                <!-- Felder werden dynamisch hinzugefügt -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cropType">Fruchtart:</label>
+            <select id="cropType">
+                <option value="weizen" data-price="7000">Weizen</option>
+                <option value="gerste" data-price="7000">Gerste</option>
+                <option value="raps" data-price="8000">Raps</option>
+                <option value="mais" data-price="9000">Mais</option>
+                <!-- Weitere Fruchtarten können hier hinzugefügt werden -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="useGrubber">Grubbern (2500€/ha):</label>
+            <input type="checkbox" id="useGrubber">
+        </div>
+        <div class="form-group">
+            <label for="useFertilizer">Düngen (3000€/ha):</label>
+            <input type="checkbox" id="useFertilizer">
+        </div>
+        <button onclick="calculateCosts()">Kosten berechnen</button>
+        
+        <div class="result" id="costResult"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
