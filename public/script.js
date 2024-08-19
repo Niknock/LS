@@ -173,12 +173,12 @@ function calculateCosts() {
 
     // Kosten hinzufügen, wenn grubbern ausgewählt ist
     if (useGrubber) {
-        totalCost += 2500;
+        totalCost += 4500;
     }
 
     // Kosten hinzufügen, wenn düngen ausgewählt ist
     if (useFertilizer) {
-        totalCost += 3000;
+        totalCost += 6000;
     }
 
     // Feldgröße holen
@@ -186,6 +186,7 @@ function calculateCosts() {
     const field = fields.find(f => f.name === selectedField);
     if (field) {
         totalCost *= parseFloat(field.size);
+        totalCost += parseFloat(field.size)*1000;
     } else {
         alert('Fehler: Feldgröße konnte nicht ermittelt werden.');
         return;
@@ -203,9 +204,89 @@ function calculateCosts() {
     }
 
     // Ergebnis anzeigen
-    document.getElementById('costResult').textContent = `Die Gesamtkosten betragen: ${totalCost.toFixed(2)} €`;
+    document.getElementById('costResult').textContent = `Der Kostenvoranschlag beträgt: ${totalCost.toFixed(2)} €`;
 }
 
+// Funktion zum Berechnen der Kosten
+function calculateCostsDreschen() {
+    const selectedCustomer = document.getElementById('customerSelect').value;
+    const selectedField = document.getElementById('fieldSelect').value;
+    const selectedCrop = document.getElementById('cropType');
+    const cropPrice = selectedCrop.options[selectedCrop.selectedIndex].getAttribute('data-price');
+
+    // Überprüfen, ob alle notwendigen Felder ausgewählt sind
+    if (!selectedCustomer || !selectedField) {
+        alert('Bitte wählen Sie einen Kunden und ein Feld aus.');
+        return;
+    }
+
+    // Basispreis für die Fruchtart
+    let totalCost = parseFloat(cropPrice);
+
+    // Feldgröße holen
+    const fields = loadData('fields');
+    const field = fields.find(f => f.name === selectedField);
+    if (field) {
+        totalCost *= parseFloat(field.size);
+        totalCost += parseFloat(field.size)*500;
+    } else {
+        alert('Fehler: Feldgröße konnte nicht ermittelt werden.');
+        return;
+    }
+
+    // Rabatt vom Kunden holen
+    const customers = loadData('customers');
+    const customer = customers.find(c => c.name === selectedCustomer);
+    if (customer) {
+        const discount = parseFloat(customer.discount);
+        totalCost -= (totalCost * (discount / 100));
+    } else {
+        alert('Fehler: Rabatt konnte nicht ermittelt werden.');
+        return;
+    }
+
+    // Ergebnis anzeigen
+    document.getElementById('costResult').textContent = `Der Kostenvoranschlag beträgt: ${totalCost.toFixed(2)} €`;
+}
+
+// Funktion zum Berechnen der Kosten
+function calculateCostsDungen() {
+    const selectedCustomer = document.getElementById('customerSelect').value;
+    const selectedField = document.getElementById('fieldSelect').value;
+
+    // Überprüfen, ob alle notwendigen Felder ausgewählt sind
+    if (!selectedCustomer || !selectedField) {
+        alert('Bitte wählen Sie einen Kunden und ein Feld aus.');
+        return;
+    }
+
+    let totalCost = parseFloat(0);
+
+    // Feldgröße holen
+    const fields = loadData('fields');
+    const field = fields.find(f => f.name === selectedField);
+    if (field) {
+        totalCost *= parseFloat(field.size);
+        totalCost += parseFloat(field.size)*1500;
+    } else {
+        alert('Fehler: Feldgröße konnte nicht ermittelt werden.');
+        return;
+    }
+
+    // Rabatt vom Kunden holen
+    const customers = loadData('customers');
+    const customer = customers.find(c => c.name === selectedCustomer);
+    if (customer) {
+        const discount = parseFloat(customer.discount);
+        totalCost -= (totalCost * (discount / 100));
+    } else {
+        alert('Fehler: Rabatt konnte nicht ermittelt werden.');
+        return;
+    }
+
+    // Ergebnis anzeigen
+    document.getElementById('costResult').textContent = `Der Kostenvoranschlag beträgt: ${totalCost.toFixed(2)} €`;
+}
 
 // Initialisierung der Kunden und Felder beim Laden der Seite
 document.addEventListener('DOMContentLoaded', function() {
