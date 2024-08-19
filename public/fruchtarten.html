@@ -13,10 +13,12 @@
             <li><a href="kunden.html">Kunden</a></li>
             <li><a href="felder.html">Felder</a></li>
             <li><a href="fruchtarten.html">Fruchtarten-Rechner</a></li>
+            <li><a href="dreschen.html">Dreschen</a></li>
+            <li><a href="dungen.html">Düngen</a></li>
         </ul>
     </nav>
     <div class="container">
-        <h2>Fruchtarten-Rechner (LS 22)</h2>
+        <h2>Fruchtarten-Rechner</h2>
         <div class="form-group">
             <label for="customerSelect">Kunde auswählen:</label>
             <select id="customerSelect">
@@ -32,21 +34,21 @@
         <div class="form-group">
             <label for="cropType">Fruchtart:</label>
             <select id="cropType">
-                <option value="weizen" data-price="6000">Weizen</option>
-                <option value="mais" data-price="7000">Mais</option>
+                <option value="weizen" data-price="9000">Weizen</option>
+                <option value="mais" data-price="12000">Mais</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="useGrubber">Grubbern (2500€/ha):</label>
+            <label for="useGrubber">Grubbern:</label>
             <input type="checkbox" id="useGrubber">
         </div>
         <div class="form-group">
-            <label for="useFertilizer">Düngen (3000€/ha):</label>
+            <label for="useFertilizer">Düngen:</label>
             <input type="checkbox" id="useFertilizer">
         </div>
         <button onclick="calculateCosts()">Kosten berechnen</button>
         
-        <div class="result" id="costResult"></div>
+        <div class="result" id="costResult">Der Kostenvoranschlag beträgt: 0.00 €</div>
     </div>
     <script src="script.js"></script>
 </body>
