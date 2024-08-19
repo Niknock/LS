@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreschen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="kunden.html">Kunden</a></li>
+            <li><a href="felder.html">Felder</a></li>
+            <li><a href="fruchtarten.html">Fruchtarten-Rechner</a></li>
+            <li><a href="dreschen.html">Dreschen</a></li>
+            <li><a href="dungen.html">Düngen</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Dreschen</h2>
+        <div class="form-group">
+            <label for="customerSelect">Kunde auswählen:</label>
+            <select id="customerSelect">
+                <!-- Kunden werden dynamisch hinzugefügt -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fieldSelect">Feld auswählen:</label>
+            <select id="fieldSelect">
+                <!-- Felder werden dynamisch hinzugefügt -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cropType">Fruchtart:</label>
+            <select id="cropType">
+                <option value="weizen" data-price="3000">Weizen</option>
+                <option value="hafer" data-price="3000">Hafer</option>
+                <option value="raps" data-price="5000">Raps</option>
+                <option value="sommerweizen" data-price="3000">Sommerweizen</option>
+                <option value="mais" data-price="7000">Mais</option>
+            </select>
+        </div>
+        <button onclick="calculateCostsDreschen()">Kosten berechnen</button>
+        
+        <div class="result" id="costResult">Der Kostenvoranschlag beträgt: 0.00 €</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
